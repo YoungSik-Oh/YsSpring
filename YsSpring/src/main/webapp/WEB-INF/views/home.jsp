@@ -17,7 +17,7 @@
 			<a href="${pageContext.request.contextPath }/users/loginform.do ">로그인</a>
 		</c:when>
 		<c:otherwise>
-			<a href="${pageContext.request.contextPath }/users/info.do">${id} 님 로그인 중</a>
+			<a href="${pageContext.request.contextPath }/users/private/info.do">${id} 님 로그인 중</a>
 			<a href="${pageContext.request.contextPath }/users/logout.do">로그아웃</a>
 		</c:otherwise>
 	</c:choose>

@@ -47,6 +47,15 @@ public class UsersServiceImpl implements UsersService{
 		}
 	}
 
+	@Override
+	public void getInfo(HttpSession session, ModelAndView mV) {
+		// TODO Auto-generated method stub
+		String id=(String)session.getAttribute("id");
+		UsersDto dto=dao.getData(id);
+		mV.addObject("dto",dto);
+		
+	}
+
 
 }
 
