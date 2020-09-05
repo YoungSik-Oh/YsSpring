@@ -56,6 +56,7 @@
 	</table>
 	<a href="updateform.do">개인정보 수정</a>
 	<a href="javascript:deleteConfirm()">탈퇴</a>
+	<a class="btn btn-primary" href="${pageContext.request.contextPath }/home.do">홈으로</a>
 </div>
 <script>
 	function deleteConfirm(){

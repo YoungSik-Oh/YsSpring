@@ -61,7 +61,18 @@ public class UsersController {
 		mV.setViewName("users/private/info");
 		return mV;
 	}
-	
+	@RequestMapping("/users/private/pwd_updateform")
+	public ModelAndView pwdUpdateform(ModelAndView mView) {
+		mView.setViewName("users/private/pwd_updateform");
+		return mView;
+	}
+	@RequestMapping("/users/private/pwd_update")
+	public ModelAndView pwdUpdate(ModelAndView mView,
+			UsersDto dto, HttpServletRequest request) {
+		service.updateUserPwd(request.getSession(), dto, mView);
+		mView.setViewName("users/private/pwd_update");
+		return mView;
+	}
 	
 	
 }

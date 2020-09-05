@@ -10,4 +10,5 @@ public interface UsersService {
 	public void addUser(UsersDto dto);
 	public void login(UsersDto dto, ModelAndView mV,HttpSession session);
 	public void getInfo(HttpSession session, ModelAndView mV);
+	public void updateUserPwd(HttpSession session, UsersDto dto, ModelAndView mView);
 }

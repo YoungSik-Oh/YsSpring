@@ -22,6 +22,10 @@ public class UsersDaoImpl implements UsersDao {
 		UsersDto dto=session.selectOne("users.getData", id);
 		return  dto;
 	}
-
+	@Override
+	public void updatePwd(UsersDto dto) {
+		session.update("users.updatePwd", dto);
+	}
+	
 
 }

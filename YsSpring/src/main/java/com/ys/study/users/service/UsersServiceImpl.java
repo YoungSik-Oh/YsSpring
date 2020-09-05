@@ -55,6 +55,26 @@ public class UsersServiceImpl implements UsersService{
 		mV.addObject("dto",dto);
 		
 	}
+	@Override
+	public void updateUserPwd(HttpSession session, UsersDto dto, ModelAndView mView) {
+		String id=(String)session.getAttribute("id");
+		dto.setId(id);
+		boolean isSuccess=false;
+		UsersDto resultDto=dao.getData(id); 
+		String encodedPwd=resultDto.getPwd();
+		String inputPwd=dto.getPwd();
+		boolean isValid=BCrypt.checkpw(inputPwd, encodedPwd);
+		if(isValid) {
+			BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+			String encodedNewPwd=encoder.encode(dto.getNewPwd());
+			dto.setNewPwd(encodedNewPwd);
+			dao.updatePwd(dto);
+			isSuccess=true;
+		}
+		
+		mView.addObject("isSuccess", isSuccess);
+	}
+	
 
 
 }
