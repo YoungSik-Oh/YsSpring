@@ -2,6 +2,9 @@ package com.ys.study.users.service;
 
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,6 +76,14 @@ public class UsersServiceImpl implements UsersService{
 		}
 		
 		mView.addObject("isSuccess", isSuccess);
+	}
+	
+	@Override
+	public Map<String, Object> isExistId(String inputId) {
+		boolean isExist=dao.isExist(inputId);
+		Map<String, Object> map=new HashMap<String, Object>();
+		map.put("isExist", isExist);
+		return map;
 	}
 	
 

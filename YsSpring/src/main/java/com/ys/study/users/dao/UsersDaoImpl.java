@@ -26,6 +26,16 @@ public class UsersDaoImpl implements UsersDao {
 	public void updatePwd(UsersDto dto) {
 		session.update("users.updatePwd", dto);
 	}
-	
+
+	@Override
+	public boolean isExist(String inputId) {
+		String id=session.selectOne("users.isExist", inputId);
+		
+		if(id==null) {
+			return false;
+		}else {
+			return true;
+		}
+	}
 
 }

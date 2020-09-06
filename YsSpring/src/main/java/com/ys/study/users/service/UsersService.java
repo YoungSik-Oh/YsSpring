@@ -1,5 +1,7 @@
 package com.ys.study.users.service;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.ModelAndView;
@@ -11,4 +13,5 @@ public interface UsersService {
 	public void login(UsersDto dto, ModelAndView mV,HttpSession session);
 	public void getInfo(HttpSession session, ModelAndView mV);
 	public void updateUserPwd(HttpSession session, UsersDto dto, ModelAndView mView);
+	public Map<String, Object> isExistId(String inputId) ;
 }

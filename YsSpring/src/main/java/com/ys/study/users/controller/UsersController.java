@@ -1,6 +1,7 @@
 package com.ys.study.users.controller;
 
 import java.net.URLEncoder;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -8,6 +9,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ys.study.users.dto.UsersDto;
@@ -73,6 +76,10 @@ public class UsersController {
 		mView.setViewName("users/private/pwd_update");
 		return mView;
 	}
-	
+	@RequestMapping("/users/checkid")
+	@ResponseBody
+	public Map<String, Object> checkid(@RequestParam String inputId){
+		return service.isExistId(inputId);
+	}
 	
 }
